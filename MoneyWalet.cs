@@ -4,20 +4,38 @@ namespace Problems
 {
     public class MoneyWalet{
         public static void Main(string[] args){
-            MoneyWalet money = new MoneyWalet();
-            int NumberOfpeople = 5;
-            int TotalAmount = 1000;
-            int[] PaidAmount = new int[5]{200,100,550,150,0};
-            money.Calculation(NumberOfpeople,TotalAmount,PaidAmount);
+            MoneyWalet person = new MoneyWalet();
+            Console.WriteLine("Enter the Number Of people");
+            int NumberOfpeople = Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine("Enter the Total Amount");
+            int TotalAmount = Convert.ToInt32(Console.ReadLine());
+            int[] PaidAmount = new int[NumberOfpeople];
+            for(int i = 0; i < NumberOfpeople; i++){
+                Console.WriteLine("person "+(i + 1)+" had paid\n");
+                PaidAmount[i] = Convert.ToInt32(Console.ReadLine());
+            }
+            person.Calculation(NumberOfpeople,TotalAmount,PaidAmount);
         }
-        
         public void Calculation(int NumberOfpeople, int TotalAmount,int[] AmountPaid){
-            int result = 0;
+            int[] result = new int[NumberOfpeople];
+           
             int dividedMoney = TotalAmount / NumberOfpeople;
-            for(int i=0; i<NumberOfpeople; i++){
-                result = AmountPaid[i] - dividedMoney;
-                Console.WriteLine("person"+ (i+1) +" has to pay = "+result);
+            for(int i = 0; i < NumberOfpeople; i++){
+                result[i] = AmountPaid[i] - dividedMoney;
             } 
+            MoneyDivision(result,dividedMoney,NumberOfpeople);
         }
+        public void MoneyDivision(int[] Amount, int AmountToDivide, int NumberOfpeople){
+            int[] whomToPay = new int[NumberOfpeople];
+            for (int i = 0; i < Amount.Length; i++)
+            {
+               if(Amount[i] < AmountToDivide && Amount[i] != 0){
+                       Console.WriteLine("Person "+(i + 1)+" Amount = "+ Math.Abs(Amount[i]));
+            }
+            else{
+                whomToPay[i] = Array.IndexOf(Amount, Amount[i]);
+            }                  
+          }  
+       }
     }
-}
+ }
