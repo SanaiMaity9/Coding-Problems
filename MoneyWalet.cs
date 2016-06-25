@@ -27,15 +27,28 @@ namespace Problems
         }
         public void MoneyDivision(int[] Amount, int AmountToDivide, int NumberOfpeople){
             int[] whomToPay = new int[NumberOfpeople];
+            int[] whoToPay = new int[NumberOfpeople];
             for (int i = 0; i < Amount.Length; i++)
             {
                if(Amount[i] < AmountToDivide && Amount[i] != 0){
-                       Console.WriteLine("Person "+(i + 1)+" Amount = "+ Math.Abs(Amount[i]));
+                   whoToPay[i] = Array.IndexOf(Amount, Amount[i]) + 1;
             }
             else{
-                whomToPay[i] = Array.IndexOf(Amount, Amount[i]);
-            }                  
-          }  
-       }
-    }
- }
+                if(Amount[i] != 0){
+                whomToPay[i] = Array.IndexOf(Amount, Amount[i]) + 1;
+                }
+              }
+            }
+            for (int i = 0; i < Amount.Length; i++)  
+            {
+                if(whoToPay[i] != 0){
+                    for(int j = 0 ; j< Amount.Length ; j++){
+                        if(whomToPay[j] != 0){
+                         Console.WriteLine("person "+ whoToPay[i] +" has to pay person "+ whomToPay[j]+" Amount = "+Math.Abs(Amount[i]));
+                        }
+                    }
+                }
+            }
+         }
+      }
+   }
