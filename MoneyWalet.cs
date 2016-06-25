@@ -2,9 +2,9 @@ using System;
 
 namespace Problems
 {
-    public class MoneyWalet{
+    public class Person{
         public static void Main(string[] args){
-            MoneyWalet person = new MoneyWalet();
+            Money money = new Money();
             Console.WriteLine("Enter the Number Of people");
             int NumberOfpeople = Convert.ToInt32(Console.ReadLine());
             Console.WriteLine("Enter the Total Amount");
@@ -14,9 +14,11 @@ namespace Problems
                 Console.WriteLine("person "+(i + 1)+" had paid\n");
                 PaidAmount[i] = Convert.ToInt32(Console.ReadLine());
             }
-            person.Calculation(NumberOfpeople,TotalAmount,PaidAmount);
+            money.Calculation(NumberOfpeople,TotalAmount,PaidAmount);
         }
-        public void Calculation(int NumberOfpeople, int TotalAmount,int[] AmountPaid){
+      }
+      public class Money{
+           public void Calculation(int NumberOfpeople, int TotalAmount,int[] AmountPaid){
             int[] result = new int[NumberOfpeople];
            
             int dividedMoney = TotalAmount / NumberOfpeople;
@@ -25,7 +27,7 @@ namespace Problems
             } 
             MoneyDivision(result,dividedMoney,NumberOfpeople);
         }
-        public void MoneyDivision(int[] Amount, int AmountToDivide, int NumberOfpeople){
+          public void MoneyDivision(int[] Amount, int AmountToDivide, int NumberOfpeople){
             int[] whomToPay = new int[NumberOfpeople];
             int[] whoToPay = new int[NumberOfpeople];
             for (int i = 0; i < Amount.Length; i++)
