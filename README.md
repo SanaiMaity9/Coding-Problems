@@ -8,6 +8,15 @@ ProblemName: linklist
 ```
 ```
 
+  ProblemName: MirrorReflection
+   Description : Its the program which reverse any value like Mirror Reflection
+   Example:
+         Input  - 4456, check, @!$
+         Output - 6544, kcehc, $!@
+ 
+```
+```
+
   ProblemName: SearchNumberFour
    Description : It counts the digit 4 in the given numbers 
    Example:
